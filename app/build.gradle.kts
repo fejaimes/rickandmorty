@@ -1,5 +1,4 @@
 import java.util.Properties
-import kotlin.apply
 
 plugins {
     alias(libs.plugins.android.application)
@@ -64,6 +63,9 @@ dependencies {
     // Hilt
     implementation(libs.hilt.android)
     ksp(libs.hilt.android.compiler)
+
+    // Hilt navigation
+    implementation(libs.hilt.navigation.compose)
 
     // Kotlinx Serialization
     implementation(libs.kotlinx.serialization.json)
