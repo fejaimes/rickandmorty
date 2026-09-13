@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">RickAndMorty</string>
+    <string name="characters_title">Personajes</string>
+    <string name="character_status_alive">Vivo</string>
+    <string name="character_status_dead">Muerto</string>
+    <string name="character_status_unknown">Desconocido</string>
+    <string name="characters_error_message">No se pudo cargar la lista. Revisa la conexión e inténtalo otra vez.</string>
+    <string name="retry">Reintentar</string>
 </resources>

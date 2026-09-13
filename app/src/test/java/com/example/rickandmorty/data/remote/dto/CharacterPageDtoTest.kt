@@ -1,7 +1,9 @@
 package com.example.rickandmorty.data.remote.dto
 
 import com.example.rickandmorty.domain.entity.CharacterStatusEntity
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertTrue
 import org.junit.Test
 
 class CharacterPageDtoTest {
@@ -46,14 +48,20 @@ class CharacterPageDtoTest {
         assertEquals("Rick Sanchez", firstCharacter.name)
         assertEquals(CharacterStatusEntity.ALIVE, firstCharacter.status)
         assertEquals("Human", firstCharacter.species)
-        assertEquals("https://rickandmortyapi.com/api/character/avatar/1.jpeg", firstCharacter.imageUrl)
+        assertEquals(
+            "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
+            firstCharacter.imageUrl
+        )
 
         val secondCharacter = domainEntity.characterEntities[1]
         assertEquals(2, secondCharacter.id)
         assertEquals("Morty Smith", secondCharacter.name)
         assertEquals(CharacterStatusEntity.DEAD, secondCharacter.status)
         assertEquals("Human", secondCharacter.species)
-        assertEquals("https://rickandmortyapi.com/api/character/avatar/2.jpeg", secondCharacter.imageUrl)
+        assertEquals(
+            "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
+            secondCharacter.imageUrl
+        )
     }
 
     @Test

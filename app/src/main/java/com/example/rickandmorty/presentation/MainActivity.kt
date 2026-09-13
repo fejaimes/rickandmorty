@@ -4,26 +4,27 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.ui.Modifier
+import coil3.ImageLoader
+import coil3.compose.setSingletonImageLoaderFactory
 import com.example.rickandmorty.presentation.characters.CharactersScreen
 import com.example.rickandmorty.presentation.theme.RickAndMortyTheme
+import dagger.Lazy
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+    @Inject
+    lateinit var imageLoader: Lazy<ImageLoader>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
+            setSingletonImageLoaderFactory { imageLoader.get() }
             RickAndMortyTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    CharactersScreen(
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+                CharactersScreen()
             }
         }
     }

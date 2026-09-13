@@ -57,4 +57,9 @@ object NetworkModule {
         }
     }
 
+    @Provides
+    @Singleton
+    @ImageHttpClient
+    fun provideImageHttpClient(): HttpClient = HttpClient(OkHttp)
+
 }
